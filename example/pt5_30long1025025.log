@@ -1,0 +1,130 @@
+Job ID: 1025025
+Node: chimera21
+GPUs: 0
+Fri Sep 25 14:31:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   31C    P0             81W /  700W |       0MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading non-redundant pair data from /pomplun/share_home/nurit.haspel/Bert/Fine-Tuning/splits_bind/dense_mini_30.csv...
+  Loaded 1403 pairs from /pomplun/share_home/nurit.haspel/Bert/Fine-Tuning/splits_bind/dense_mini_30.csv
+  Contact labels: present
+Loaded 1403 protein pairs
+  LoRA: replaced 96 linear layers (rank=8)
+ProtT5_LoRA_CrossAttn+Contact_Classifier — trainable parameters: 12,870,915
+  LoRA params          : 4,423,680
+  Other trainable      : 8,447,235
+  cross-attention: 8,392,704
+  contact head:    2,305
+
+Split: 982 train / 210 val / 211 test
+
+Configuration:
+  Architecture:     ProtT5 + LoRA (rank=8) + CrossChainAttention + ContactHead
+  Class weights:    [1.0, 3.0]  (3.0x for binding sites)
+  Label smoothing:  0.05
+  Contact lambda:   1.0
+  Pos weight cap:   10.0
+  Bind threshold:   0.3  (sub-matrix threshold — use same value as --pred-threshold in jaccard_filter.py)
+  Attn supervision: 0.5 (guiding attention toward known contacts)
+  Detach contact:   False
+  Epochs:           12
+  Checkpoint dir:   ./checkpoints_mini  (save every 1 epoch(s))
+{'loss': 1.7241, 'grad_norm': 1.3652629852294922, 'learning_rate': 0.0, 'epoch': 0.03}
+{'eval_loss': 0.9511062502861023, 'eval_accuracy': 0.647620027636492, 'eval_f1': 0.3800977527218185, 'eval_mcc': 0.1721064287191944, 'eval_runtime': 124.9374, 'eval_samples_per_second': 1.681, 'eval_steps_per_second': 0.424, 'epoch': 1.0}
+{'loss': 1.6263, 'grad_norm': 1.4569933414459229, 'learning_rate': 0.0002943592484899252, 'epoch': 1.62}
+{'eval_loss': 0.9068324565887451, 'eval_accuracy': 0.7590186105312674, 'eval_f1': 0.4011689497716895, 'eval_mcc': 0.2505057454327988, 'eval_runtime': 123.7384, 'eval_samples_per_second': 1.697, 'eval_steps_per_second': 0.428, 'epoch': 2.0}
+{'eval_loss': 0.8773223161697388, 'eval_accuracy': 0.7050098491753153, 'eval_f1': 0.44340276814689483, 'eval_mcc': 0.2685849503329987, 'eval_runtime': 123.5228, 'eval_samples_per_second': 1.7, 'eval_steps_per_second': 0.429, 'epoch': 3.0}
+{'loss': 1.3947, 'grad_norm': 1.178915023803711, 'learning_rate': 0.00026288561547842075, 'epoch': 3.23}
+{'eval_loss': 0.8760755062103271, 'eval_accuracy': 0.7612530503042955, 'eval_f1': 0.44083318987777587, 'eval_mcc': 0.28964950398713785, 'eval_runtime': 125.6013, 'eval_samples_per_second': 1.672, 'eval_steps_per_second': 0.422, 'epoch': 4.0}
+{'loss': 1.3336, 'grad_norm': 0.9579522013664246, 'learning_rate': 0.00020954774866385701, 'epoch': 4.85}
+{'eval_loss': 0.8591783046722412, 'eval_accuracy': 0.7589598094846088, 'eval_f1': 0.45548434231062995, 'eval_mcc': 0.3029889573429759, 'eval_runtime': 123.2755, 'eval_samples_per_second': 1.704, 'eval_steps_per_second': 0.43, 'epoch': 5.0}
+{'eval_loss': 0.8487982749938965, 'eval_accuracy': 0.7401434745538471, 'eval_f1': 0.4663224949430909, 'eval_mcc': 0.3065105675642468, 'eval_runtime': 124.2635, 'eval_samples_per_second': 1.69, 'eval_steps_per_second': 0.427, 'epoch': 6.0}
+{'loss': 1.2824, 'grad_norm': 0.6006579399108887, 'learning_rate': 0.00014467638492220904, 'epoch': 6.46}
+{'eval_loss': 0.8450873494148254, 'eval_accuracy': 0.7397318672272366, 'eval_f1': 0.4733319451468007, 'eval_mcc': 0.3147251957629191, 'eval_runtime': 124.7922, 'eval_samples_per_second': 1.683, 'eval_steps_per_second': 0.425, 'epoch': 7.0}
+{'eval_loss': 0.8465654850006104, 'eval_accuracy': 0.7646341104871667, 'eval_f1': 0.4727847476044651, 'eval_mcc': 0.3241885298292494, 'eval_runtime': 124.2816, 'eval_samples_per_second': 1.69, 'eval_steps_per_second': 0.426, 'epoch': 8.0}
+{'loss': 1.2569, 'grad_norm': 0.6094101667404175, 'learning_rate': 8.083612478260109e-05, 'epoch': 8.07}
+{'eval_loss': 0.8400762677192688, 'eval_accuracy': 0.7408637873754153, 'eval_f1': 0.4772552043176561, 'eval_mcc': 0.31979239377600815, 'eval_runtime': 123.6606, 'eval_samples_per_second': 1.698, 'eval_steps_per_second': 0.429, 'epoch': 9.0}
+{'loss': 1.2318, 'grad_norm': 0.9398996829986572, 'learning_rate': 3.0391859624903948e-05, 'epoch': 9.68}
+{'eval_loss': 0.8424301743507385, 'eval_accuracy': 0.7615176550142593, 'eval_f1': 0.47723391228692036, 'eval_mcc': 0.3273911762288397, 'eval_runtime': 124.2863, 'eval_samples_per_second': 1.69, 'eval_steps_per_second': 0.426, 'epoch': 10.0}
+{'eval_loss': 0.8412462472915649, 'eval_accuracy': 0.7557698527033782, 'eval_f1': 0.4780067864773156, 'eval_mcc': 0.32573260613724736, 'eval_runtime': 123.2627, 'eval_samples_per_second': 1.704, 'eval_steps_per_second': 0.43, 'epoch': 11.0}
+{'loss': 1.2238, 'grad_norm': 0.4629216492176056, 'learning_rate': 3.1138795144823035e-06, 'epoch': 11.29}
+{'eval_loss': 0.8414483666419983, 'eval_accuracy': 0.7577396877664423, 'eval_f1': 0.47752203411324584, 'eval_mcc': 0.326011555261235, 'eval_runtime': 123.5542, 'eval_samples_per_second': 1.7, 'eval_steps_per_second': 0.429, 'epoch': 12.0}
+{'train_runtime': 3882.1386, 'train_samples_per_second': 3.035, 'train_steps_per_second': 0.096, 'train_loss': 1.3303880101890975, 'epoch': 12.0}
+
+Checkpoints saved in: ./checkpoints_mini
+Best checkpoint: ./checkpoints_mini/checkpoint-310
+
+Rank 0: running evaluation and saving outputs...
+Plot saved to training_history.png
+Saved val/test probabilities → run_30_mini/
+
+Saving predicted contact matrices for Jaccard filter...
+Saved contact matrices for 211 pairs → ./run_30_mini/contacts.pkl  (bind_thresh=0.3)
+
+── Contact matrix diagnostics ───────────────────────
+  mean prob    : 0.0315
+  mean max     : 0.1745
+  frac > 0.2   : 0.0000
+  frac > 0.5   : 0.0000
+  (target: mean<0.15, frac>0.5<0.10)
+
+── Threshold-independent metrics ────────────────────────
+AUROC    : 0.7558
+AUPRC    : 0.4450
+  (baseline AUPRC for random = 0.1897)
+  (AUPRC lift over random   = 2.35x)
+
+── Test results (default threshold=0.5) ─────────────────
+Accuracy : 0.7527
+F1       : 0.4574
+MCC      : 0.3103
+                  precision    recall  f1-score   support
+
+ non-binding (0)       0.88      0.80      0.84     58528
+binding site (1)       0.39      0.55      0.46     13703
+
+        accuracy                           0.75     72231
+       macro avg       0.64      0.67      0.65     72231
+    weighted avg       0.79      0.75      0.77     72231
+
+Confusion matrix :
+ [[46837 11691]
+ [ 6173  7530]]
+
+Running threshold sweep on validation set...
+Best threshold: 0.65  (val MCC=0.3383)
+
+── Test results (tuned threshold=0.65) ──────────────────
+Accuracy : 0.8070
+F1       : 0.4261
+MCC      : 0.3161
+AUROC    : 0.7558  (threshold-independent, same as above)
+AUPRC    : 0.4450  (threshold-independent, same as above)
+                  precision    recall  f1-score   support
+
+ non-binding (0)       0.86      0.91      0.88     58528
+binding site (1)       0.49      0.38      0.43     13703
+
+        accuracy                           0.81     72231
+       macro avg       0.68      0.64      0.66     72231
+    weighted avg       0.79      0.81      0.80     72231
+
+Confusion matrix (tuned):
+ [[53114  5414]
+ [ 8528  5175]]
