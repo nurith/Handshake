@@ -1075,7 +1075,7 @@ def train_per_residue(train_df, valid_df, num_labels=2,
         num_train_epochs=epochs,
         seed=seed,
         report_to="none",
-        gradient_checkpointing=True, # Remove later!
+        gradient_checkpointing=False, # True makes it faster but less accurate.
         deepspeed=ds_config if deepspeed else None,
         dataloader_num_workers=num_workers,
         dataloader_pin_memory=True,
@@ -1533,7 +1533,7 @@ if __name__ == "__main__":
         logging_first_step=True,
         learning_rate=lr,
         lr_scheduler_type="cosine",
-        gradient_checkpointing=True, # Remove later!
+        gradient_checkpointing=False, #True makes it faster and less accurate.
         warmup_steps=warmup_steps,
         per_device_train_batch_size=batch,
         per_device_eval_batch_size=batch,
